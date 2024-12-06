@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>PRODUCTS</Text>
+      <Text style={styles.head}>PRODUCTS LIST</Text>
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
@@ -33,6 +33,8 @@ const App = () => {
             <Text style={styles.title}>{item.title.substring(0,20)}</Text>
             <Text style={styles.price}>Price: ${item.price}</Text>
             <Text style={styles.des}>{item.description.substring(0,90)}...</Text>
+            <Text><Text style={styles.rate}> Rating: </Text> {item.rating.rate}/5</Text>
+            <Text><Text style={styles.rate}> Category: </Text> {item.category}</Text>
             <View style={styles.button}>
               <TouchableOpacity style={styles.btn}>
                 <Text style={styles.text}>Add to Cart</Text>
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
+    paddingTop: 20,
   },
   title: {
     fontSize: 16,
@@ -89,6 +92,9 @@ const styles = StyleSheet.create({
     fontWeight: 'italic',
     marginRight: 20,
     marginLeft: 20,
+  },
+  rate: {
+    fontWeight: 'bold',
   },
   btn: {
     backgroundColor: '#007BFF',
