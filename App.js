@@ -31,7 +31,8 @@ const App = () => {
           <View style={styles.item}>
             <Image source={{uri: item.image}} style={styles.image}/>
             <Text style={styles.title}>{item.title.substring(0,20)}</Text>
-            <Text>${item.price}</Text>
+            <Text style={styles.price}>Price: ${item.price}</Text>
+            <Text style={styles.des}>{item.description.substring(0,90)}...</Text>
             <View style={styles.button}>
               <TouchableOpacity style={styles.btn}>
                 <Text style={styles.text}>Add to Cart</Text>
@@ -77,10 +78,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   price: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#28a745',
     fontWeight: 'bold',
     marginLeft: 10,
+  },
+  des: {
+    fontSize: 16,
+    color: '#222222',
+    fontWeight: 'italic',
+    marginRight: 20,
+    marginLeft: 20,
   },
   btn: {
     backgroundColor: '#007BFF',
